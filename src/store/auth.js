@@ -23,6 +23,15 @@ export const useAuth = defineStore('auth', {
         .then(() => {
           meStore.user = null
         })
+    },
+    register(firstName, lastName = '', email, password) {
+      console.log(firstName, lastName, email, password);
+      return axios.post('api/register',{
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        password
+      })
     }
   },
 
