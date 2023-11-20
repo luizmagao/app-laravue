@@ -14,11 +14,42 @@ const routes = [
         name: 'login',
         component: () => import('@/views/Login.vue')
       },
+    ]
+  },
+  {
+    path:'/cadastrar',
+    component: () => import('@/layouts/Auth.vue'),
+    beforeEnter: redirectIfAuthenticated,
+    children: [
       {
-        path: '/cadastrar',
+        path: '',
         name: 'cadastrar',
         component: () => import('@/views/Register.vue')
-      }
+      },
+    ]
+  },
+  {
+    path:'/verificar-email',
+    component: () => import('@/layouts/Auth.vue'),
+    beforeEnter: redirectIfAuthenticated,
+    children: [
+      {
+        path: '',
+        name: 'verificarEmail',
+        component: () => import('@/views/VerifyEmail.vue')
+      },
+    ]
+  },
+  {
+    path:'/esqueci-senha',
+    component: () => import('@/layouts/Auth.vue'),
+    beforeEnter: redirectIfAuthenticated,
+    children: [
+      {
+        path: '',
+        name: 'fogoutPassword',
+        component: () => import('@/views/FogoutPassword.vue')
+      },
     ]
   },
   {
